@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import authRoute from './routes/auth.js';
 import usersRoute from './routes/users.js';
@@ -32,6 +33,7 @@ mongoose.connection.on('connected', () => {
 });
 
 //Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
